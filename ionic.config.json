@@ -1,0 +1,7 @@
+{
+  "name": "CamaraComercio",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
