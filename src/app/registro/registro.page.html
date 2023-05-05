@@ -1,0 +1,120 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-title>QUERIDO EMPRESARIO QUEREMOS CONOCERTE</ion-card-title>
+    <img alt="Silhouette of mountains" src="assets/icon/Mobilelogin.png" />
+    <ion-card-title>Formulario</ion-card-title>
+
+    <ion-list  [inset]="true">
+      <ion-label>Documento:</ion-label>
+      <ion-item>
+          <ion-input 
+            labelPlacement="stacked" [clearInput]="true" value="Default value" 
+            placeholder="Ingrese su documento" 
+            type="number" 
+            required 
+            name="id" 
+            ngModel>
+          </ion-input>
+      </ion-item>
+    
+      <ion-label>Nombre:</ion-label>
+      <ion-item>
+          <ion-input
+            labelPlacement="stacked" [clearInput]="true" value="Default value" 
+            placeholder="Ingrese su nombre" 
+            type="text" 
+            required 
+            name="name" 
+            ngModel>
+          </ion-input>
+      </ion-item>
+
+      <ion-label>Sexo:</ion-label>
+      <ion-item>
+        <ion-select
+        label="Sexo" 
+        placeholder="Elija un sexo" 
+        label-placement="floating"
+        ngModel>
+          <ion-select-option value="fem">Femenino</ion-select-option>
+          <ion-select-option value="mas">Masculino</ion-select-option>
+          <ion-select-option value="bin">Binario</ion-select-option>
+          <ion-select-option value="otro">Otro</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-label>Fecha Nacimiento:</ion-label>
+      <ion-item>
+        <ion-label floating></ion-label>
+            <ion-input type="date"
+                       required 
+                       name="fecha" 
+                       ngModel>
+            </ion-input>
+      </ion-item>
+
+      <ion-label>Estado:</ion-label>
+      <ion-radio-group  [allowEmptySelection]="true" value="turtles">
+        <ion-item>
+          <ion-label>Soltero</ion-label>
+          <ion-radio label-placement="end" justify="start" color="danger" value="solt"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Casado</ion-label>
+          <ion-radio label-placement="end" justify="start" color="danger" value="casad"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Unión Libre</ion-label>
+          <ion-radio label-placement="end" justify="start" color="danger" value="unili"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <ion-label>Pasatiempo:</ion-label> 
+      <ion-item>
+        <ion-label>Cine</ion-label>
+        <ion-checkbox color="danger"   value="space-between"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Gym</ion-label>
+        <ion-checkbox color="danger"  value="space-between"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Manejar bicicleta</ion-label>
+        <ion-checkbox color="danger"  value="space-between"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Jugar en parques</ion-label>
+        <ion-checkbox color="danger"  value="space-between"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Correr</ion-label>
+        <ion-checkbox color="danger"  value="space-between"></ion-checkbox>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="reset" color="danger">Guardar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" type= "reset" color="danger">Eliminar</ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </ion-list>
+  </ion-card>
+</ion-content>
