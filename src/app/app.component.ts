@@ -10,7 +10,7 @@ export class AppComponent {
     { title: 'Misión y Visión', url: '/mision-vision', icon: 'eye' },
     { title: 'Servicios', url: '/servicios', icon: 'construct' },
     { title: 'Contacto', url: '/contacto', icon: 'call' },
-    { title: 'Formulario', url: '/registro', icon: 'newspaper' },
+    { title: 'Menú', url: '/menu', icon: 'cafe' },
     
   ];
   constructor() {}

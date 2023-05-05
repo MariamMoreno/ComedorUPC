@@ -4,7 +4,6 @@ ion-toolbar{
 ion-title{
     color: #fff;
 }
-
 ion-card{
     position: relative;
     text-align:justify;
@@ -17,4 +16,13 @@ ion-card-title{
 ion-card-content{
     color:#000;
     font-size: 14px;
+}
+img{
+    display: block;
+    margin: auto;
+}
+ion-icon{
+font-size: 40px;
+align-items:flex-end;
+justify-content: center;
 }
