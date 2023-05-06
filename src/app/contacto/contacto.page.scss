@@ -26,3 +26,25 @@ ion-accordion.accordion-expanded ion-item[slot="header"] {
 --background: var(--ion-color-danger);
  --color: var(--ion-color-danger-contrast);
 }
+
+
+ion-card{
+    position: relative;
+    text-align:justify;
+    border-radius: 15px;
+}
+ion-card-title{
+    text-align: center;
+    color: #03a526;
+}
+ion-card-content{
+    color:#000;
+    font-size: 14px;
+}
+
+h1{
+    text-align: center;
+    color: #03a526;
+    padding-top: 15PX;
+    padding-bottom: 15PX;
+}
