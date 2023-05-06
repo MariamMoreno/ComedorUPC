@@ -138,16 +138,28 @@ export class MenuPage implements OnInit {
 
   async enviar(){
 
-    console.log("este es contaador cuando se envía " + this.contador)
-    const alert = await this.alerController.create({
-      cssClass: 'my-custom-class',
-      header: "Pedido Exitoso!",
-      subHeader: 'Su orden ha sido recibida',
-      message: this.contador,
-      buttons: ['OK']
-    })
-
-    await alert.present();
+    if(this.contador == ''){
+      const alert = await this.alerController.create({
+        cssClass: 'my-custom-class',
+        header: "Error en el pedido!",
+        // subHeader: 'Su orden ha sido recibida',
+        message: 'Debe seleccionar una comida',
+        buttons: ['OK']
+      })
+  
+      await alert.present();
+    }else{
+      // console.log("este es contaador cuando se envía " + this.contador)
+      const alert = await this.alerController.create({
+        cssClass: 'my-custom-class',
+        header: "Pedido Exitoso!",
+        subHeader: 'Su orden ha sido recibida',
+        message: this.contador,
+        buttons: ['OK']
+      })
+  
+      await alert.present();
+    }
 
   }
 
