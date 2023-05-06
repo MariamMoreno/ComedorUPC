@@ -11,6 +11,12 @@
               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+            <!-- <ion-menu-toggle *ngFor="let pages of appSubMenu; let i = index" >
+              <ion-item *ngIf="p.title == 'Menú'" routerDirection="root" [routerLink]="[pages.url]" lines="none" detail="false">
+                <ion-icon aria-hidden="true" slot="start" [ios]="pages.icon + '-outline'" [md]="pages.icon + '-sharp'"></ion-icon>
+                <ion-label>{{ pages.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle> -->
           </ion-menu-toggle>
         </ion-list>
       </ion-content>

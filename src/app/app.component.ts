@@ -13,5 +13,10 @@ export class AppComponent {
     { title: 'Menú', url: '/menu', icon: 'cafe' },
     
   ];
+
+  public appSubMenu = [
+    { title: 'menu 2', url: '/login', icon: 'home' },
+    { title: 'menu 3', url: '/register', icon: 'eye' },    
+  ];
   constructor() {}
 }
