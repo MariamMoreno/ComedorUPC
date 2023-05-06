@@ -1,40 +1,14 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Bienvenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <!-- <form [formGroup] = "formularioLogin">
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
-      <ion-label position="floating" >valor</ion-label>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </ion-item>
-  </form> -->
+  <img alt="Silhouette of mountains" src="assets/bienvenido.jpeg" />
 
-  <!-- <ion-card >
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" ></ion-input>
-    </ion-item>
-    <ion-label position="floating" [(ngModel)]="valor" ngDefaultControl>valor</ion-label>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="correo"></ion-input>
-    </ion-item>
-</ion-card>
-
-  <ion-item>
-    <ion-button (click)="ingresar()">Ingresar</ion-button>
-  </ion-item> -->
-
-  <div class="container">
-    <img src="../../assets/bienvenido.jpeg" alt="">
-  </div>
 </ion-content>
