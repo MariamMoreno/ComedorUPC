@@ -49,6 +49,18 @@ export class MenuPage implements OnInit {
     console.log(this.valor)
   }
 
+  setClose(isOpen: boolean, ingreso: string) {
+    this.isModalOpen = isOpen;
+
+    console.log('error')
+    console.log(ingreso)
+
+    
+    if(ingreso == '1'){
+      console.log("este es sancocho " + ingreso)
+    }
+  }
+
 
 
   setOpen1(isOpen: boolean) {
@@ -57,6 +69,8 @@ export class MenuPage implements OnInit {
     console.log('error')
     console.log(this.valor)
   }
+
+  
 
   setOpen2(isOpen: boolean) {
     this.isModalOpen2 = isOpen;
