@@ -37,6 +37,34 @@ export class MenuPage implements OnInit {
   // leaveAnimation = (baseEl: HTMLElement) => {
   //   return this.enterAnimation(baseEl).direction('reverse');
   // };
+  public valor: string ='';
+  isModalOpen = false;
+  isModalOpen1 = false;
+  isModalOpen2 = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+
+    console.log('error')
+    console.log(this.valor)
+  }
+
+
+
+  setOpen1(isOpen: boolean) {
+    this.isModalOpen1 = isOpen;
+
+    console.log('error')
+    console.log(this.valor)
+  }
+
+  setOpen2(isOpen: boolean) {
+    this.isModalOpen2 = isOpen;
+
+    console.log('error')
+    console.log(this.valor)
+  }
+
   constructor(){}
 
   ngOnInit() {
