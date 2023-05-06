@@ -17,41 +17,27 @@ ion-card-title{
     text-align: center;
     color: #03a526;
 }
+
 ion-card-content{
     color:#000;
     font-size: 14px;
 }
+
 img{
     display: block;
     margin: auto;
 }
+
 ion-icon{
-font-size: 40px;
-align-items:flex-end;
-justify-content: center;
-}
-
-ion-content{
-    width: 100%;
-    display: flex;
+    font-size: 40px;
+    align-items:flex-end;
     justify-content: center;
-
 }
 
-
-
-// ion-modal{
-//     display: flex;
-//     align-items: center;
-// }
-
-.espaciado{
-    margin-bottom: 15px;
-}
 
 ion-item{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 15px;
 }
-    
+

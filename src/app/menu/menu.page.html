@@ -7,302 +7,315 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <!-- <ion-button >Open Custom Dialog</ion-button> -->
-  <form>
+  <form >
+    <ion-label>Documento:</ion-label>
     <ion-item>
-      <ion-label position="floating">Documento</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input 
+        labelPlacement="stacked" [clearInput]="true" value="Default value" 
+        placeholder="Ingrese su documento" 
+        type="number" 
+        required 
+        name="id" 
+        ngModel>
+      </ion-input>
+  </ion-item>
+
+  <ion-label>Nombre:</ion-label>
+  <ion-item>
+      <ion-input
+        labelPlacement="stacked" [clearInput]="true" value="Default value" 
+        placeholder="Ingrese su nombre" 
+        type="text" 
+        required 
+        name="name" 
+        ngModel>
+      </ion-input>
+  </ion-item>
+
+  <ion-label>Selecciona tu Rol:</ion-label>
+    <ion-item>
+      <ion-select label="Rol" label-placement="floating" fill="Rol" style="text-align: center;"
+        placeholder="Selecciona tu rol" ngModel>
+        <ion-select-option value="estudiante">Estudiante</ion-select-option>
+        <ion-select-option value="docente">Docente</ion-select-option>
+        <ion-select-option value="administrativo">Administrativo</ion-select-option>
+      </ion-select>
     </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Nombre</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Comidas:</ion-label>
+      <ion-buttons>
+        <ion-button expand="block" (click)="setOpen(true)">Desayuno</ion-button>
+        <ion-button expand="block" (click)="setOpen1(true)">Almuerzo</ion-button>
+        <ion-button expand="block" (click)="setOpen2(true)">Comida</ion-button>
+      </ion-buttons>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Selecciona tu rol:</ion-label>
-    <ion-select label="Rol" label-placement="floating" fill="Rol" style="text-align: center;" placeholder="Seleccione uno">
-      <ion-select-option value="estudiante">Estudiante</ion-select-option>
-      <ion-select-option value="docente">Docente</ion-select-option>
-      <ion-select-option value="administrativo">Administrativo</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-label>Fecha de reserva:</ion-label>
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+      <ion-input type="date" required ngModel></ion-input>
+    </ion-item>
+  
+  </form>
 
-  <ion-item>
-    <ion-label>Comidas:</ion-label>
-    <!-- <ion-select label="Rol" label-placement="floating" fill="Rol" style="text-align: center;">
-      <ion-select-option value="apple">Desayuno</ion-select-option>
-      <ion-select-option value="banana">Almuerzo</ion-select-option>
-      <ion-select-option value="orange">Cena</ion-select-option>
-    </ion-select> -->
-    <ion-buttons>
-      <ion-button expand="block" (click)="setOpen(true)">Desayuno</ion-button>
-      <ion-button expand="block" (click)="setOpen1(true)">Almuerzo</ion-button>
-      <ion-button  expand="block" (click)="setOpen2(true)">Comida</ion-button>
-      <!-- <ion-button expand="block" (click)="setOpen(true)">prueba</ion-button> -->
-      
-    </ion-buttons>
-  </ion-item>
-  <br>
-
-</form>
-
-<!-- Desayunos -->
-<ion-modal [isOpen]="isModalOpen">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Desayunos</ion-title>
-        <!-- <ion-buttons slot="end">
+  <!-- Desayunos -->
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Desayunos</ion-title>
+          <!-- <ion-buttons slot="end">
           <ion-button (click)="setOpen(false)">Close</ion-button>
         </ion-buttons> -->
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/DESA1.jpg" />
-        <ion-card-header>
-          <ion-card-title>Tosta de aguacate con anchoas y tomates cherry.</ion-card-title>
-          <ion-card-subtitle>$10.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          1 rebanada de pan de hogaza, 1 aguacate maduro, 
-          1 lata de anchoas en aceite, 4 tomates cherry y cebollino fresco.
-        </ion-card-content>
-        <ion-button (click)="setClose(false, '1')">Pagar</ion-button>
-      </ion-card>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/DESA1.jpg" />
+          <ion-card-header>
+            <ion-card-title>Tosta de aguacate con anchoas y tomates cherry.</ion-card-title>
+            <ion-card-subtitle>$10.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            1 rebanada de pan de hogaza, 1 aguacate maduro,
+            1 lata de anchoas en aceite, 4 tomates cherry y cebollino fresco.
+          </ion-card-content>
+          <ion-button (click)="setClose(false, '1')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/DESA2.jpg" />
-        <ion-card-header>
-          <ion-card-title>Tostas de tomate y mozzarella con mortadela.</ion-card-title>
-          <ion-card-subtitle>$20.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          2 rebanadas grandes de pan de hogaza, 2 tomates en rama (u otra variedad sabrosa), 
-          1 mozzarella fresca, 4 lonchas de mortadela de Bolonia, 
-          aceite de oliva virgen extra, alcaparras, pimienta negra molida y sal gorda.
-        </ion-card-content>
-        <ion-button (click)="setClose(false , '2')">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/DESA2.jpg" />
+          <ion-card-header>
+            <ion-card-title>Tostas de tomate y mozzarella con mortadela.</ion-card-title>
+            <ion-card-subtitle>$20.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            2 rebanadas grandes de pan de hogaza, 2 tomates en rama (u otra variedad sabrosa),
+            1 mozzarella fresca, 4 lonchas de mortadela de Bolonia,
+            aceite de oliva virgen extra, alcaparras, pimienta negra molida y sal gorda.
+          </ion-card-content>
+          <ion-button (click)="setClose(false , '2')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/DESA3.jpg" />
-        <ion-card-header>
-          <ion-card-title>Gofres keto o "chaffles.</ion-card-title>
-          <ion-card-subtitle>$8.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          1 huevo M, 30 g de clara de huevo, 100 g de mozzarella, 
-          1 cucharada de almendra molida, 1/2 cucharadita de sal, 
-          pimienta negra y especias o hierbas.
-        </ion-card-content>
-        <ion-button (click)="setClose(false, '3')">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/DESA3.jpg" />
+          <ion-card-header>
+            <ion-card-title>Gofres keto o "chaffles.</ion-card-title>
+            <ion-card-subtitle>$8.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            1 huevo M, 30 g de clara de huevo, 100 g de mozzarella,
+            1 cucharada de almendra molida, 1/2 cucharadita de sal,
+            pimienta negra y especias o hierbas.
+          </ion-card-content>
+          <ion-button (click)="setClose(false, '3')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/DESA4.jpg" />
-        <ion-card-header>
-          <ion-card-title>Gofres keto o "chaffles.</ion-card-title>
-          <ion-card-subtitle>$12.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          400 g de yogur natural, 1/2 cucharadita de levadura 
-          seca de panadería o 3 g de levadura fresca, 
-          300 g de harina de fuerza, 90 g de harina integral, 
-          1 cucharadita de sal.
-        </ion-card-content>
-        <ion-button (click)="setClose(false, '4')">Pagar</ion-button>
-      </ion-card>
-
-      
-    <ion-card class="card">
-      <img alt="Silhouette of mountains" src="../../assets/DESA5.jpg" />
-      <ion-card-header>
-        <ion-card-title>Bizcocho de yogur.</ion-card-title>
-        <ion-card-subtitle>$11.000</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        1 yogur natural o de limón, 1 medida de aceite, 2 medidas de azúcar, 3 medidas de harina de 
-        repostería, 1/2 sobre de levadura (8 g), 3 huevos, ralladura de limón opcional.
-      </ion-card-content>
-      <ion-button (click)="setClose(false, '5')">Pagar</ion-button>
-    </ion-card>
-    </ion-content>
-  </ng-template>
-</ion-modal>
-<!-- Desayunos -->
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/DESA4.jpg" />
+          <ion-card-header>
+            <ion-card-title>Tostadas de tomate y Mozarella</ion-card-title>
+            <ion-card-subtitle>$12.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            400 g de yogur natural, 1/2 cucharadita de levadura
+            seca de panadería o 3 g de levadura fresca,
+            300 g de harina de fuerza, 90 g de harina integral,
+            1 cucharadita de sal.
+          </ion-card-content>
+          <ion-button (click)="setClose(false, '4')">Pagar</ion-button>
+        </ion-card>
 
 
-<!-- Almuerzos -->
-<ion-modal [isOpen]="isModalOpen1">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Almuerzos</ion-title>
-        <!-- <ion-buttons slot="end">
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/DESA5.jpg" />
+          <ion-card-header>
+            <ion-card-title>Bizcocho de yogur.</ion-card-title>
+            <ion-card-subtitle>$11.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            1 yogur natural o de limón, 1 medida de aceite, 2 medidas de azúcar, 3 medidas de harina de
+            repostería, 1/2 sobre de levadura (8 g), 3 huevos, ralladura de limón opcional.
+          </ion-card-content>
+          <ion-button (click)="setClose(false, '5')">Pagar</ion-button>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <!-- Desayunos -->
+
+
+  <!-- Almuerzos -->
+  <ion-modal [isOpen]="isModalOpen1">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Almuerzos</ion-title>
+          <!-- <ion-buttons slot="end">
           <ion-button (click)="setOpen(false)">Close</ion-button>
         </ion-buttons> -->
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/ALMU1.jpg" />
-        <ion-card-header>
-          <ion-card-title>Arroces y pasta.</ion-card-title>
-          <ion-card-subtitle>$25.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          El arroz blanco y la pasta son dos alimentos baratos, 
-          relativamente fáciles de preparar y muy socorridos en pisos de estudiantes o recién independizados.
-        </ion-card-content>
-        <ion-button (click)="setOpen1(false)">Pagar</ion-button>
-      </ion-card>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/ALMU1.jpg" />
+          <ion-card-header>
+            <ion-card-title>Arroces y pasta.</ion-card-title>
+            <ion-card-subtitle>$25.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            El arroz blanco y la pasta son dos alimentos baratos,
+            relativamente fáciles de preparar y muy socorridos en pisos de estudiantes o recién independizados.
+          </ion-card-content>
+          <ion-button (click)="setClose1(false, '1')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/ALMU2.jpg" />
-        <ion-card-header>
-          <ion-card-title>Pescados y mariscos.</ion-card-title>
-          <ion-card-subtitle>$30.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          El pescado también es otro de esos productos que causa algo de respeto a los más principiantes. Sin embargo, 
-          son un alimento fantástico, fuente de proteínas de gran calidad y muy rápido de cocinar.
-        </ion-card-content>
-        <ion-button (click)="setOpen1(false)">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/ALMU2.jpg" />
+          <ion-card-header>
+            <ion-card-title>Pescados y mariscos.</ion-card-title>
+            <ion-card-subtitle>$30.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            El pescado también es otro de esos productos que causa algo de respeto a los más principiantes. Sin embargo,
+            son un alimento fantástico, fuente de proteínas de gran calidad y muy rápido de cocinar.
+          </ion-card-content>
+          <ion-button (click)="setClose1(false, '2')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/ALMU3.jpg" />
-        <ion-card-header>
-          <ion-card-title>Solomillo de cerdo.</ion-card-title>
-          <ion-card-subtitle>$35.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          El solomillo de cerdo es también muy sencillo de cocinar; cocínalo a la plancha cortado en filetes.
-        </ion-card-content>
-        <ion-button (click)="setOpen1(false)">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/ALMU3.jpg" />
+          <ion-card-header>
+            <ion-card-title>Solomillo de cerdo.</ion-card-title>
+            <ion-card-subtitle>$35.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            El solomillo de cerdo es también muy sencillo de cocinar; cocínalo a la plancha cortado en filetes.
+          </ion-card-content>
+          <ion-button (click)="setClose1(false, '3')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/ALMU4.jpg" />
-        <ion-card-header>
-          <ion-card-title>Bocadillos y sándwiches.</ion-card-title>
-          <ion-card-subtitle>$27.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Aprovecha cuando puedas ciertas sobras para prepararte bocadillos deliciosos, 
-          como el típico pollo asado, e intenta invertir en un buen pan de calidad.
-        </ion-card-content>
-        <ion-button (click)="setOpen1(false)">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/ALMU4.jpg" />
+          <ion-card-header>
+            <ion-card-title>Bocadillos y sándwiches.</ion-card-title>
+            <ion-card-subtitle>$27.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Aprovecha cuando puedas ciertas sobras para prepararte bocadillos deliciosos,
+            como el típico pollo asado, e intenta invertir en un buen pan de calidad.
+          </ion-card-content>
+          <ion-button (click)="setClose1(false, '4')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/ALMU5.jpg" />
-        <ion-card-header>
-          <ion-card-title>Ensalada de lechuga.</ion-card-title>
-          <ion-card-subtitle>$24.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Hay que reconocer que las bolsas de cuarta gama, las típicas ensaladas y hojas verdes ya cortadas y 
-          lavadas listas para consumir, nos solucionan muchas molestias, pero no son un recurso al que recurrir siempre.
-        </ion-card-content>
-        <ion-button (click)="setOpen1(false)">Pagar</ion-button>
-      </ion-card>
-      
-    </ion-content>
-  </ng-template>
-</ion-modal>
-<!-- Almuerzos -->
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/ALMU5.jpg" />
+          <ion-card-header>
+            <ion-card-title>Ensalada de lechuga.</ion-card-title>
+            <ion-card-subtitle>$24.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Hay que reconocer que las bolsas de cuarta gama, las típicas ensaladas y hojas verdes ya cortadas y
+            lavadas listas para consumir, nos solucionan muchas molestias, pero no son un recurso al que recurrir
+            siempre.
+          </ion-card-content>
+          <ion-button (click)="setClose1(false, '5')">Pagar</ion-button>
+        </ion-card>
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <!-- Almuerzos -->
 
 
-<!-- Comidas -->
-<ion-modal [isOpen]="isModalOpen2">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Almuerzos</ion-title>
-        <!-- <ion-buttons slot="end">
+  <!-- Comidas -->
+  <ion-modal [isOpen]="isModalOpen2">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Almuerzos</ion-title>
+          <!-- <ion-buttons slot="end">
           <ion-button (click)="setOpen(false)">Close</ion-button>
         </ion-buttons> -->
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/CENA1.jpg" />
-        <ion-card-header>
-          <ion-card-title>Pollo con verduras al papillote.</ion-card-title>
-          <ion-card-subtitle>$25.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Una opción muy inteligente, ya que resulta bastante más rápida. 
-          Y el pollo es una magnifica fuente de proteínas.
-        </ion-card-content>
-        <ion-button (click)="setOpen2(false)">Pagar</ion-button>
-      </ion-card>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/CENA1.jpg" />
+          <ion-card-header>
+            <ion-card-title>Pollo con verduras al papillote.</ion-card-title>
+            <ion-card-subtitle>$25.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Una opción muy inteligente, ya que resulta bastante más rápida.
+            Y el pollo es una magnifica fuente de proteínas.
+          </ion-card-content>
+          <ion-button (click)="setClose2(false, '1')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/CENA2.jpg" />
-        <ion-card-header>
-          <ion-card-title>Salmón crujiente con patatas y espárragos.</ion-card-title>
-          <ion-card-subtitle>$30.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Sencillo y nutritivo. Hazlo a la plancha para que quede crujiente y aderézalo con sal gorda, perejil y ajo en polvo. 
-          Puedes servir las patatas cocidas para que el plato sea mucho más saludable.
-        </ion-card-content>
-        <ion-button (click)="setOpen2(false)">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/CENA2.jpg" />
+          <ion-card-header>
+            <ion-card-title>Salmón crujiente con patatas y espárragos.</ion-card-title>
+            <ion-card-subtitle>$30.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Sencillo y nutritivo. Hazlo a la plancha para que quede crujiente y aderézalo con sal gorda, perejil y ajo
+            en polvo.
+            Puedes servir las patatas cocidas para que el plato sea mucho más saludable.
+          </ion-card-content>
+          <ion-button (click)="setClose2(false, '2')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/CENA3.jpg" />
-        <ion-card-header>
-          <ion-card-title>Falso sándwich de tortilla.</ion-card-title>
-          <ion-card-subtitle>$15.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Con un par de huevos puedes hacer una tortilla francesa. 
-          Divídela a la mitad y rellénala de jamón, queso y lechuga como si fuese un sándwich.
-        </ion-card-content>
-        <ion-button (click)="setOpen2(false)">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/CENA3.jpg" />
+          <ion-card-header>
+            <ion-card-title>Falso sándwich de tortilla.</ion-card-title>
+            <ion-card-subtitle>$15.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Con un par de huevos puedes hacer una tortilla francesa.
+            Divídela a la mitad y rellénala de jamón, queso y lechuga como si fuese un sándwich.
+          </ion-card-content>
+          <ion-button (click)="setClose2(false, '3')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/CENA4.jpg" />
-        <ion-card-header>
-          <ion-card-title>Brocheta de coles con salsa de cacahuete.</ion-card-title>
-          <ion-card-subtitle>$27.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Saltea las coles en una sartén con un poco de aceite. Para la salsa: 
-          mezcla una cucharadita de salsa de soja, una cucharada de crema de cacahuete y semillas de sésamo.
-        </ion-card-content>
-        <ion-button (click)="setOpen2(false)">Pagar</ion-button>
-      </ion-card>
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/CENA4.jpg" />
+          <ion-card-header>
+            <ion-card-title>Brocheta de coles con salsa de cacahuete.</ion-card-title>
+            <ion-card-subtitle>$27.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Saltea las coles en una sartén con un poco de aceite. Para la salsa:
+            mezcla una cucharadita de salsa de soja, una cucharada de crema de cacahuete y semillas de sésamo.
+          </ion-card-content>
+          <ion-button (click)="setClose2(false, '4')">Pagar</ion-button>
+        </ion-card>
 
-      <ion-card class="card">
-        <img alt="Silhouette of mountains" src="../../assets/CENA5.jpg" />
-        <ion-card-header>
-          <ion-card-title>Salmón al horno con salsa de yogur.</ion-card-title>
-          <ion-card-subtitle>$24.000</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          Puedes hacer una salsa de yogur casera mezclando un yogur natural con limón, un diente de ajo triturado, sal, pimienta y AOVE. 
-          La combinación con el salmón te conquistará.
-        </ion-card-content>
-        <ion-button (click)="setOpen2(false)">Pagar</ion-button>
-      </ion-card>
-      
-    </ion-content>
-  </ng-template>
-</ion-modal>
-<!-- Comidas -->
+        <ion-card class="card">
+          <img alt="Silhouette of mountains" src="../../assets/CENA5.jpg" />
+          <ion-card-header>
+            <ion-card-title>Salmón al horno con salsa de yogur.</ion-card-title>
+            <ion-card-subtitle>$24.000</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Puedes hacer una salsa de yogur casera mezclando un yogur natural con limón, un diente de ajo triturado,
+            sal, pimienta y AOVE.
+            La combinación con el salmón te conquistará.
+          </ion-card-content>
+          <ion-button (click)="setClose2(false, '5')">Pagar</ion-button>
+        </ion-card>
 
-<ion-item>
-  <ion-label class="espaciado" position="floating">Fecha de reserva</ion-label>
-  <ion-input type="date"></ion-input>
-</ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <!-- Comidas -->
 
-<ion-button expand="block" type="submit">Enviar</ion-button>
+  <div class="centrar-boton">
+    <ion-button  class="ancho" expand="block" type="submit" (click)="enviar()">Ordenar</ion-button>
+  </div>
 </ion-content>
