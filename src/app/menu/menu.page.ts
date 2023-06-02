@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, AnimationController } from '@ionic/angular';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
 
 
 
@@ -13,11 +15,69 @@ export class MenuPage implements OnInit {
 
   formularioLogin: FormGroup;
 
-  constructor(public alerController: AlertController, public fb: FormBuilder){
+  constructor(public alerController: AlertController, public fb: FormBuilder, public http: HttpClient){
     this.formularioLogin = this.fb.group({
       'documento': new FormControl("", Validators.required),
       'nombre': new FormControl("", Validators.required),
     })
+  }
+
+  getDate: [] = [];
+
+  getData(){
+    this.http.get<any>('http://localhost/appbienestar/controller/apiPlatos.php')
+    .subscribe(data =>{
+      this.getDate = data;
+
+      console.log(this.getDate);
+    })
+  }
+
+  documento: string='';
+  nombre: string='';
+  rol: string = '';
+  programa: string = '';
+  comida: string = '';
+  fecha: string = '';
+
+
+  async SaveData(form:NgForm){
+    this.documento = form.value.documento;
+    this.nombre = form.value.name;
+    this.rol = form.value.rol;
+    this.programa = form.value.programa;
+    this.fecha = form.value.fecha;
+
+
+    console.log(this.documento)
+    console.log(this.nombre)
+    console.log(this.rol)
+    console.log(this.programa)
+    console.log(this.fecha)
+    console.log(form)
+
+    if(this.contador == ''){
+      const alert = await this.alerController.create({
+        cssClass: 'my-custom-class',
+        header: "Error en el pedido!",
+        // subHeader: 'Su orden ha sido recibida',
+        message: 'Debe seleccionar una comida',
+        buttons: ['OK']
+      })
+  
+      await alert.present();
+    }else{
+      // console.log("este es contaador cuando se envía " + this.contador)
+      const alert = await this.alerController.create({
+        cssClass: 'my-custom-class',
+        header: "Pedido Exitoso!",
+        subHeader: 'Su orden ha sido recibida',
+        message: this.contador,
+        buttons: ['OK']
+      })
+  
+      await alert.present();
+    }
   }
   
   public valor: string ='';
@@ -138,28 +198,28 @@ export class MenuPage implements OnInit {
 
   async enviar(){
 
-    if(this.contador == ''){
-      const alert = await this.alerController.create({
-        cssClass: 'my-custom-class',
-        header: "Error en el pedido!",
-        // subHeader: 'Su orden ha sido recibida',
-        message: 'Debe seleccionar una comida',
-        buttons: ['OK']
-      })
+    // if(this.contador == ''){
+    //   const alert = await this.alerController.create({
+    //     cssClass: 'my-custom-class',
+    //     header: "Error en el pedido!",
+    //     // subHeader: 'Su orden ha sido recibida',
+    //     message: 'Debe seleccionar una comida',
+    //     buttons: ['OK']
+    //   })
   
-      await alert.present();
-    }else{
-      // console.log("este es contaador cuando se envía " + this.contador)
-      const alert = await this.alerController.create({
-        cssClass: 'my-custom-class',
-        header: "Pedido Exitoso!",
-        subHeader: 'Su orden ha sido recibida',
-        message: this.contador,
-        buttons: ['OK']
-      })
+    //   await alert.present();
+    // }else{
+    //   // console.log("este es contaador cuando se envía " + this.contador)
+    //   const alert = await this.alerController.create({
+    //     cssClass: 'my-custom-class',
+    //     header: "Pedido Exitoso!",
+    //     subHeader: 'Su orden ha sido recibida',
+    //     message: this.contador,
+    //     buttons: ['OK']
+    //   })
   
-      await alert.present();
-    }
+    //   await alert.present();
+    // }
 
   }
 

@@ -9,38 +9,39 @@
 
 <ion-content>
   <!-- <ion-button >Open Custom Dialog</ion-button> -->
-  <form >
+  <form (ngSubmit)="SaveData(formTemplate)" #formTemplate="ngForm">
     <ion-label>Documento:</ion-label>
     <ion-item>
-      <ion-input 
-        labelPlacement="stacked" [clearInput]="true" value="Default value" 
-        placeholder="Ingrese su documento" 
-        type="number" 
-        required 
-        name="id" 
-        ngModel>
+      <ion-input labelPlacement="stacked" [clearInput]="true" value="Default value" placeholder="Ingrese su documento"
+        type="number" required name="documento" ngModel>
       </ion-input>
-  </ion-item>
+    </ion-item>
 
-  <ion-label>Nombre:</ion-label>
-  <ion-item>
-      <ion-input
-        labelPlacement="stacked" [clearInput]="true" value="Default value" 
-        placeholder="Ingrese su nombre" 
-        type="text" 
-        required 
-        name="name" 
-        ngModel>
-      </ion-input>
-  </ion-item>
-
-  <ion-label>Selecciona tu Rol:</ion-label>
+    <ion-label>Nombre:</ion-label>
     <ion-item>
-      <ion-select label="Rol" label-placement="floating" fill="Rol" style="text-align: center;"
-        placeholder="Selecciona tu rol" ngModel>
+      <ion-input labelPlacement="stacked" [clearInput]="true" value="Default value" placeholder="Ingrese su nombre"
+        type="text" required name="name" ngModel>
+      </ion-input>
+    </ion-item>
+
+    <ion-label>Selecciona tu Rol:</ion-label>
+    <ion-item>
+      <ion-select label="Rol" name="rol" label-placement="floating" fill="Rol" placeholder="Selecciona tu rol" ngModel
+        style="text-align: center;">
         <ion-select-option value="estudiante">Estudiante</ion-select-option>
         <ion-select-option value="docente">Docente</ion-select-option>
         <ion-select-option value="administrativo">Administrativo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-label>Programa Academico</ion-label>
+    <ion-item>
+      <ion-select label="Programa" name="programa" label-placement="floating" fill="Rol" style="text-align: center;"
+        placeholder="Selecciona tu rol" ngModel>
+        <ion-select-option value="ambiental">Ingeniería Ambiental</ion-select-option>
+        <ion-select-option value="sistemas">Ingeniería de Sistemas</ion-select-option>
+        <ion-select-option value="admon">Administración de empresa</ion-select-option>
+        <!-- <ion-select-option value="administrativo">Ingeniería de empresa</ion-select-option> -->
       </ion-select>
     </ion-item>
 
@@ -56,9 +57,11 @@
     <ion-label>Fecha de reserva:</ion-label>
     <ion-item>
       <ion-label position="floating"></ion-label>
-      <ion-input type="date" required ngModel></ion-input>
+      <ion-input type="date" name="fecha" required ngModel></ion-input>
     </ion-item>
-  
+
+    <ion-button   expand="block" type="submit" >Ordenar</ion-button>
+
   </form>
 
   <!-- Desayunos -->
@@ -315,10 +318,12 @@
   </ion-modal>
   <!-- Comidas -->
 
-  <div class="centrar-boton">
-    <!-- <ion-button   expand="block" type="submit" >Ordenar</ion-button> -->
-    <i class="ancho" (click)="enviar()">Ordenar</i>
-  </div>
+  <!-- <div class="centrar-boton">
+    
+    <i type="submit" class="ancho" (click)="enviar()">Ordenar</i>
+  </div> -->
 
-  
+  <ion-button (click)="getData()">Api</ion-button>
+
+
 </ion-content>
